@@ -164,7 +164,13 @@ You can view all your commits and their identifiers in the commit tab, seen in t
 ![](https://res.cloudinary.com/din8rv70n/image/upload/v1770413284/commit_cm0ezs.gif)
 <br>
 
-Let's say you want to rever or "time travel" back to this commit. There are a few different ways to do this:
+Let's say you want to revert or "time travel" back to this commit. There are a few different ways to do this:
+
+You could temporarily look at or "checkout" the commit by running:
+
+```
+git checkout be2a54f (replace with your commit hash number)
+```
 
 <h3> How do I make it so certain files are ignored and never pushed to GitHub </h3>
 
@@ -236,23 +242,19 @@ If you have already added large files to the staging area, see the below section
 
 <h3> I have accidentally added files to the staging area and now I can't undo it? </h3>
 
-You can run:
+To unstage a specfic file, you can run:
 
 ```
  git reset filename.xyz
 ```
 
-To unstage a specfic file.
-
-Run:
+To unstage all files ending in that extension, run:
 
 ```
 git reset *.extensionname
 ```
 
-To unstage all files ending in that extension.
-
-Or simply
+Or simply:
 
 ```
 git reset

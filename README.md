@@ -265,4 +265,4 @@ To unstage all files in the staging area.
 1. It's illegal. <br>
 2. It's incredibly inefficient, instead of writing a few commands (that do become muscle memory) you have to waste time in a GUI.
 
-So yeah call me a nerd all you like but if this was helpfull you owe me a drink :thumbs_up:.
+So yeah call me a nerd all you like but if this was helpfull you owe me a drink :+1:.

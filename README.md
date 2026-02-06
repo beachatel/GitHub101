@@ -1,5 +1,5 @@
 <h1> How to use Git and GitHub </h1> 
-<h2> Why do I keep yapping about GitHub???</h2>
+<h2> Why do I keep yapping about GitHub??</h2>
 
 <h3> GitHub is great for 4 reasons: </h3>
 
@@ -155,10 +155,16 @@ git push -u origin main
 
 <h3> How do I revert my code back to a previous version? </h3>
 
-There are a few different ways to do this but first we need to understand how commits work:
+First we need to understand how commits work:
 
-When you commit something it generates a hash code.
+When you commit something a unique identifier called a Git hash is assigned to the commit. <br>
+
+You can view all your commits and their identifiers in the commit tab, seen in the video below:
+
 ![](https://res.cloudinary.com/din8rv70n/image/upload/v1770413284/commit_cm0ezs.gif)
+<br>
+
+Let's say you want to rever or "time travel" back to this commit. There are a few different ways to do this:
 
 <h3> How do I make it so certain files are ignored and never pushed to GitHub </h3>
 
@@ -259,4 +265,4 @@ To unstage all files in the staging area.
 1. It's illegal. <br>
 2. It's incredibly inefficient, instead of writing a few commands (that do become muscle memory) you have to waste time in a GUI.
 
-So yeah call me a nerd all you like but if this was helpfull you owe me a drink.
+So yeah call me a nerd all you like but if this was helpfull you owe me a drink :thumbs_up:.

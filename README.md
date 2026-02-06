@@ -154,7 +154,11 @@ git push -u origin main
 <h2> FAQ and Extended Tutorial</h2>
 
 <h3> How do I revert my code back to a previous version? </h3>
+
+There are a few different ways to do this but first we need to understand how commits work:
+
 When you commit something it generates a hash code.
+![](https://res.cloudinary.com/din8rv70n/image/upload/v1770413284/commit_cm0ezs.gif)
 
 <h3> How do I make it so certain files are ignored and never pushed to GitHub </h3>
 
@@ -198,7 +202,7 @@ The rules you just created have to be pushed otherwise they won't actually be ac
 
 <h3> I really want to add files bigger than 95mb, how do I do that? </h3>
 
-Git LFS (Large File Storage) is a system that stores a reference of your file instead of the actual file itself--which is stored externally. This allows you to push larger files than the usual limit, but it is still <ins>not</ins> a replacement for cloud storage.
+Git LFS (Large File Storage) is a system that stores a reference of your file instead of the actual file itself—which is stored externally. This allows you to push larger files than the usual limit, but it is still <ins>not</ins> a replacement for cloud storage.
 
 To install Git LFS go to https://git-lfs.com/
 
@@ -255,4 +259,4 @@ To unstage all files in the staging area.
 1. It's illegal. <br>
 2. It's incredibly inefficient, instead of writing a few commands (that do become muscle memory) you have to waste time in a GUI.
 
-<h2> Usefull Commands Cheatsheet </h3>
+So yeah call me a nerd all you like but if this was helpfull you owe me a drink.

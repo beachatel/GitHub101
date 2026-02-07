@@ -3,7 +3,7 @@
 
 <h3> GitHub is great for 4 reasons: </h3>
 
-1. You can store huge amounts of code on the cloud, for free. This allows you to access your code from any machine in the world with an internet connection. <br>
+1. You can store huge amounts of code on the cloud, for free. This allows you to access your code from any machine in the world with an internet connection. GitHub also preserves important folder structures that other cloud services do not. <br>
 
 2. You can track changes in your code, this allows you to version control. Meaning you can revert back to a specific point in your code when something worked/didn't work. This is especially great when you have lots of different itterations of something and you might want to document the process. <br>
 
@@ -22,7 +22,27 @@ GitHub is not for storing media. It is not a replacement for cloud storage like 
 Go to https://git-scm.com/install/ and install for your operating system. On university machines launch Git from AppsAnywhere.
 <br><br> (Note - Git is a free and open source distributed version control system, GitHub is the platform that uses Git.)
 
-<h3> Step 2: Create a GitHub repository</h3>
+Verify your Git installation with:
+
+```
+git --version
+```
+
+<h3> Step 2: Login to GitHub from your terminal </h3>
+
+When you first install Git, you must run these commands to link your GitHub username and email to your machine.
+
+Run:
+
+```
+git config --global user.name "insertyourusername"
+```
+
+```
+git config --global user.email "your@email.com"
+```
+
+<h3> Step 3: Create a GitHub repository</h3>
 
 Go to https://github.com, sign in if prompted. Then navigate to the repositories tab and click create a new repository.
 
@@ -36,11 +56,11 @@ Once you have named your repo hit create repository at the bottom of the page. Y
 
 ![Link a repository](https://res.cloudinary.com/din8rv70n/image/upload/v1770395943/Link-Repo_mlzfaa.png)
 
-<br> You can stop on this page for now and move on to step 3.
+<br> You can stop on this page for now and move on to step 4.
 
-<h3> Step 3: Link your local folder to GitHub </h3>
+<h3> Step 4: Link your local folder to GitHub </h3>
 
-The whole point of GitHub is to link a local folder to a remote location and track it's changes. Your local folder will act as the main workspace where you write and change your code. You can push your local code to GitHub to save "snapshots" and specific versons onto the cloud.
+The whole point of GitHub is to link a local folder to a remote location and track it's changes. Your local folder will act as the main workspace where you write and change your code. You can push your local code to GitHub to save "snapshots" and specific versons onto a remote location.
 
 Open a new terminal at your folder location. If you don't have one, make one.
 
@@ -50,7 +70,7 @@ Initialise your folder with this command:
 git init
 ```
 
-You can now run this command to link your local folder to your GitHub repository. Replace username with your GitHub username and reponame with the name of your repository. You can confirm this in step 2.
+You can now run this command to link your local folder to your GitHub repository. Replace username with your GitHub username and reponame with the name of your repository. You can confirm this URL on the page in step 2.
 
 ```
 git remote add origin https://github.com/username/reponame.git
@@ -62,15 +82,17 @@ Run this command to create a branch (a branch is like a workspace that does not 
 git branch -M main
 ```
 
-Your local folder is now linked to your remote GitHub repository!!
+After running this, you should be prompted to sign in with your GitHub credentials if you haven't already.
 
-<h3> Step 4: Pushing your code to GitHub </h3>
+Great, now your local folder is now linked to your remote GitHub repository!
+
+<h3> Step 5: Pushing your code to GitHub </h3>
 
 Now that you have your folder and repo linked, you can now "push" your code. This essentialy sends your code from your local folder to your remote repo.
 
 To do this we need to quickly understand the "staging area".
 
-The staging area is the place your code lives when you add files with Git. Think of it like limbo or purgatory between your local and remote locations.
+The staging area is the place your code lives when you add files with Git. Think of it like a limbo between your local and remote locations.
 
 So when you run:
 
@@ -78,7 +100,7 @@ So when you run:
 git add .
 ```
 
-This adds <ins> every </ins> changed file in your local folder to the staging area.
+This adds <ins>every</ins> changed file in your local folder to the staging area.
 
 To add every file, not just the changed ones, run:
 
@@ -121,6 +143,14 @@ git commit -m "blah blah blah"
 
 The commit messages acts as a way to decribe the changes you are making, or what you are adding.
 
+You can check the commit you just made by running:
+
+```
+git log
+```
+
+To leave the log, press q.
+
 Now we are ready to push.
 
 Run:
@@ -151,9 +181,25 @@ git commit -m "blah blah"
 git push -u origin main
 ```
 
+Your local folder should always be the most up to date version (ahead) of your GitHub repo. If you add files to your GitHub repo that don't exist in your local folder, this will break when you next go to push your local code.
+
+Check your if your GitHub repo is ahead by using:
+
+```
+git status -uno
+```
+
+If it is ahead, run:
+
+```
+git pull
+```
+
+This syncs your local and remote locations by "pulling" any new files from the GitHub repo to your local folder.
+
 <h2> FAQ and Extended Tutorial</h2>
 
-<h3> How do I revert my code back to a previous version? </h3>
+<h3> How do I go back to a previous version of my code? </h3>
 
 First we need to understand how commits work:
 
@@ -164,12 +210,73 @@ You can view all your commits and their identifiers in the commit tab, seen in t
 ![](https://res.cloudinary.com/din8rv70n/image/upload/v1770413284/commit_cm0ezs.gif)
 <br>
 
-Let's say you want to revert or "time travel" back to this commit. There are a few different ways to do this:
+Or you can view this in the terminal by running:
+
+```
+git log --oneline
+```
+
+Let's say you want to revert or "time travel" back to an old commit. There are a few different ways to do this.
 
 You could temporarily look at or "checkout" the commit by running:
 
 ```
-git checkout be2a54f (replace with your commit hash number)
+git checkout commithashnumber (e.g. 330cdb9)
+```
+
+This is fine if you just wanted to look at an old version of your code. But if you wanted to edit it and perhaps commit a change, you would be left in a "detached head state".
+
+This video explains this concept well: https://www.youtube.com/watch?v=Ow3uc-oyhIo
+
+If you did not make any edits when you checked out an old commit, simply switch back to your main branch (or whatever your up to date branch is named) by running:
+
+```
+git checkout main
+```
+
+Another way to revert back to the previous commit is to use:
+
+```
+git revert HEAD
+```
+
+Which reverts the code back to the previous commit.
+
+This is good for collaborative repositories, as you are not actually deleting the old commit, so if people need to view/edit it, they can.
+
+For private repositories where no one else is relying on your code you may want to use:
+
+```
+git reset HEAD~1
+```
+
+This resets your version back to the previous commit with the unstaged code intact.
+
+If you wanted to delete the previous commits unstaged code entirely, use:
+
+```
+git reset --hard HEAD~1
+```
+
+Okay so now we know how to revert or reset back to the last commit,
+but how do we revert or reset back to a specific commit in your repos history.
+
+You can use:
+
+```
+git revert 330cdb9
+```
+
+Or:
+
+```
+git reset Githashnumber^ (make sure to put this ^ at the end of your Git hash number)
+```
+
+So an example would look like this:
+
+```
+git reset 330cdb9^
 ```
 
 <h3> How do I make it so certain files are ignored and never pushed to GitHub </h3>

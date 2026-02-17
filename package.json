@@ -1,0 +1,23 @@
+{
+  "name": "github101",
+  "version": "1.0.0",
+  "description": "<h1> How to use Git and GitHub </h1>  <h2> Why do I keep yapping about GitHub??</h2>",
+  "homepage": "https://github.com/beachatel/GitHub101#readme",
+  "bugs": {
+    "url": "https://github.com/beachatel/GitHub101/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beachatel/GitHub101.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "menu.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
